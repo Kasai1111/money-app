@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>家計簿</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>家計簿</h1>
+
+    <div class="section">
+      <label for="monthSelect">月選択:</label>
+      <select id="monthSelect"></select>
+    </div>
+
+    <div class="section">
+      <h2>共同資金</h2>
+      <div class="budget-card" id="budgetDisplay"></div>
+
+      <form id="budgetForm" style="margin-top: 15px">
+        <input
+          type="number"
+          id="monthlyBudgetInput"
+          placeholder="今月の目標額を入力"
+          required
+        />
+        <button type="submit">目標額を設定</button>
+      </form>
+    </div>
+
+    <div class="section">
+      <form id="expenseForm">
+        <select id="category">
+          <option value="食費">食費</option>
+          <option value="交通費">交通費</option>
+          <option value="娯楽費">娯楽費</option>
+        </select>
+
+        <input type="number" id="amount" placeholder="金額" required />
+        <select id="payer">
+          <option value="hime">宏亮</option>
+          <option value="kano">渚沙</option>
+        </select>
+        <input type="date" id="date" required />
+
+        <button type="submit">追加</button>
+      </form>
+    </div>
+
+    <div class="section">
+      <h2>出費一覧</h2>
+      <table id="expenseTable">
+        <thead>
+          <tr>
+            <th>日付</th>
+            <th>カテゴリ</th>
+            <th>金額</th>
+            <th>支払者</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody id="expenseList"></tbody>
+      </table>
+    </div>
+
+    <div class="section">
+      <h2>合計額</h2>
+      <div class="total-card" id="totalDisplay"></div>
+    </div>
+
+    <script type="module" src="script.js"></script>
+  </body>
+</html>

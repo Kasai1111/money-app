@@ -1,0 +1,162 @@
+/* ベーススタイル: bodyのパディングを調整し、フォントを設定 */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  padding: 10px;
+  background-color: #eef2f7; /* 背景色を少し青みがかった薄い色に変更して清潔感を出す */
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  padding-bottom: 10px;
+  border-bottom: 3px solid #007bff; /* アクセントカラー（青）を使って下線を引く */
+  margin-bottom: 20px;
+}
+
+h2 {
+  color: #007bff; /* セクション見出しをアクセントカラーにする */
+  border-left: 5px solid #007bff; /* 見出しの左側にアクセント */
+  padding-left: 10px;
+  margin-bottom: 15px;
+}
+
+.section {
+  margin-bottom: 20px;
+  padding: 15px; /* パディングを少し増やす */
+  border-radius: 12px; /* 角丸を大きくしてモダンにする */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 軽い影をつけて浮き上がらせる */
+  background-color: #fff;
+}
+
+/* フォームの調整: スマホで要素が縦に並ぶようにするじゃ */
+#expenseForm,
+#budgetForm {
+  display: flex;
+  flex-direction: column; /* 要素を縦に並べるじゃ */
+  gap: 10px; /* 要素間のスペース */
+}
+
+#expenseForm select,
+#expenseForm input,
+#budgetForm input {
+  /* 予算フォームの入力欄も対象にするじゃ */
+  width: 100%;
+  padding: 12px; /* パディングを増やして入力しやすくする */
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+/* フォームボタンの共通スタイル */
+#expenseForm button[type="submit"],
+#budgetForm button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#expenseForm button[type="submit"] {
+  background-color: #28a745; /* 追加ボタンはグリーン */
+}
+
+#budgetForm button[type="submit"] {
+  background-color: #007bff; /* 設定ボタンはブルー */
+}
+
+#expenseForm button[type="submit"]:hover {
+  background-color: #218838;
+}
+
+#budgetForm button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* カードのスタイル */
+.budget-card,
+.total-card {
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 1.1em;
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+.budget-card {
+  background-color: #e0f7fa; /* 共同資金カードは明るい水色系 */
+  color: #00796b;
+}
+
+.total-card {
+  background-color: #fff3e0; /* 個人合計カードは明るいオレンジ系 */
+  color: #e65100;
+}
+
+.over {
+  color: #dc3545; /* 超過はより目立つ赤 */
+  font-weight: bold;
+}
+
+/* テーブルのスタイル */
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 5px;
+  background-color: #fff;
+  min-width: 600px; /* スマホで横スクロールを許容するための最小幅 */
+}
+
+table th,
+table td {
+  border: none;
+  padding: 12px 8px;
+  text-align: center;
+}
+
+table thead th {
+  background-color: #007bff;
+  color: #fff;
+  font-weight: bold;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+/* データ行の調整 */
+#expenseList tr {
+  background-color: #f8f9fa;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.2s;
+}
+
+#expenseList tr:hover {
+  background-color: #e2e6ea;
+}
+
+/* 編集・削除ボタンの調整 */
+button[onclick^="editExpense"] {
+  /* 編集ボタン */
+  background-color: #ffc107;
+  color: #333;
+}
+button[onclick^="deleteExpense"] {
+  /* 削除ボタン */
+  background-color: #dc3545;
+  color: #fff;
+}
+
+button {
+  cursor: pointer;
+  padding: 6px 10px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  margin: 2px;
+}
