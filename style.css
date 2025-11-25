@@ -109,7 +109,12 @@ table {
   border-collapse: separate;
   border-spacing: 0 5px;
   background-color: #fff;
-  min-width: 600px; /* スマホで横スクロールを許容するための最小幅 */
+}
+
+.table-responsive {
+  /* overflow-xプロパティで、横方向のコンテンツがはみ出した場合にスクロールバーを表示するじゃ */
+  overflow-x: auto;
+  width: 100%;
 }
 
 table th,
@@ -159,4 +164,52 @@ button {
   border-radius: 4px;
   font-size: 14px;
   margin: 2px;
+}
+
+/* style.css に追加 */
+
+/* テーブルの列幅を最適化するじゃ */
+#expenseTable th:nth-child(1), /* 日付 */
+#expenseTable td:nth-child(1) {
+  width: 25%; /* YYYY-MM-DDを想定してやや広めに */
+  min-width: 90px;
+}
+
+#expenseTable th:nth-child(2), /* カテゴリ */
+#expenseTable td:nth-child(2) {
+  width: 20%;
+  min-width: 70px;
+}
+
+#expenseTable th:nth-child(3), /* 金額 */
+#expenseTable td:nth-child(3) {
+  width: 15%;
+  min-width: 60px;
+}
+
+#expenseTable th:nth-child(4), /* 支払者 */
+#expenseTable td:nth-child(4) {
+  width: 15%;
+  min-width: 60px;
+}
+
+#expenseTable th:nth-child(5), /* 操作ボタン */
+#expenseTable td:nth-child(5) {
+  width: 25%; /* 編集/削除ボタンが入るので広めに */
+  min-width: 120px;
+}
+
+/* ボタンが横並びになるようにtd内のflexboxを適用するじゃ */
+#expenseList tr td:nth-child(5) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+}
+
+/* 編集・削除ボタンの調整（前回設定済みだが再確認） */
+button[onclick^="editExpense"],
+button[onclick^="deleteExpense"] {
+  padding: 6px; /* ボタンのパディングを減らして小さくする */
+  font-size: 12px;
 }
